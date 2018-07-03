@@ -1,28 +1,24 @@
-Byteball is a wallet for storage and transfer of decentralized value.  See [byteball.org](https://byteball.org/).
+# [DAGX | 基于DAG的价值互联与交换网络](http://dagx.io "dagx官网")
 
-## Binary Downloads
+DAGX Networks 是基于 DAG 技术开发的价值交换网络，新一代基于有向无环图的分布式账本技术（DLT）。“ X ” 代表基于 DAG 区块链技术的 “价值互联与交换”，赋能保险科技、医疗健康等行业。 DAGX 公链1.0已完成并上线测试。依托中钰资本在医疗健康和保险科技的丰富资源，Bsure DAPP落地。DAGX基金会打造健康与保险行业数字资产公链生态，并助力企业运用 DAGX 开放的平台与技术实现企业资产上链和价值互联、交换。
 
-[Byteball.org](https://byteball.org/)
+- 高并发
+- 可扩展
+- 双合约
+- BAAS
+- 快支付
+- 挖矿
+- 高安全
+- 应用多
+## 基于DAG的价值交换网络
+DAGX Networks 是新一代基于有向无环图分布式账本技术（DAG）的商用价值交换网络， X 代表“价值互联与交换”。DAGX Networks 致力推动实体经济与价值互联网连接融合，赋能行业与企业资产价值上链、流通与交换，实现数字经济价值重构和价值创造。 DAGX团队认为：下一代价值互联网将会是多维多链的网络生态，就像繁荣的生物世界。目前行业主流专家依然从传统历史进行推断，认为未来DLT生态发展类似操作系统，只有3-4种主流区块链得以延续发展。DAGX团队对未来有更宏远而不同的判断： 区块链正在带来生产关系的彻底变革，实现价值互联和流通交换体系的重构。区块链通过全球多个价值交换网络和分布式多维逻辑功能链层进行资产价值互联、流通交换， 从而构筑崭新繁荣的多维多链新世界。 
 
-## Main Features
+DAGX团队创造性提出了DAGX Value Layers分层架构体系，由不同功能层次化的逻辑功能链组成DAGX Network价值交换网络，积极推动多维多链的下一代价值互联网应用落地。
 
-TBD
+DAGX公链1.0已完成开发和上线测试，并在医疗健康、保险科技等多行业展开落地合作。依托中钰资本等合作方丰富的医疗健康资源，DAGX重点赋能 “医疗健康、保险互助” 行业，打造健康与保险行业数字资产公链生态，推动各行业企业实现资产上链和价值互联、交换。
 
-## Installation
+# DAGX钱包客户端
 
-Download and install [NW.js v0.14.7 LTS](https://dl.nwjs.io/v0.14.7) and [Node.js v5.12.0](https://nodejs.org/download/release/v5.12.0/).  These versions are recommended for easiest install but newer versions will work too.  If you already have another version of Node.js installed, you can use [NVM](https://github.com/creationix/nvm) to keep both.
-
-Clone the source:
-
-```sh
-git clone https://github.com/byteball/byteball.git
-cd byteball
-```
-
-If you are building for testnet, switch to testnet branch:
-```sh
-git checkout testnet
-```
 
 Install [bower](http://bower.io/) and [grunt](http://gruntjs.com/getting-started) if you haven't already:
 
@@ -31,7 +27,7 @@ npm install -g bower
 npm install -g grunt-cli
 ```
 
-Build Byteball:
+Build:
 
 ```sh
 bower install
@@ -40,18 +36,13 @@ grunt
 ```
 If you are on Windows or using NW.js and Node.js versions other than recommended, see [NW.js instructions about building native modules](http://docs.nwjs.io/en/latest/For%20Users/Advanced/Use%20Native%20Node%20Modules/).
 
-After first run, you'll likely encounter runtime error complaining about node_sqlite3.node not being found, copy the file from the neighboring directory to where the program tries to find it, and run again. (e.g. from `byteball/node_modules/sqlite3/lib/binding/node-v47-darwin-x64` to `byteball/node_modules/sqlite3/lib/binding/node-webkit-v0.14.7-darwin-x64`)
+After first run, you'll likely encounter runtime error complaining about node_sqlite3.node not being found, copy the file from the neighboring directory to where the program tries to find it, and run again. (e.g. from `/node_modules/sqlite3/lib/binding/node-v47-darwin-x64` to `/node_modules/sqlite3/lib/binding/node-webkit-v0.14.7-darwin-x64`)
 
-Then run Byteball desktop client:
+Then run desktop client:
 
 ```sh
 /path/to/your/nwjs/nwjs .
 ```
-
-## Build Byteball App Bundles
-
-All app bundles will be placed at `../byteballbuilds` dir, so create it first: `mkdir -p ../byteballbuilds`
-
 
 ### Android
 
@@ -63,67 +54,4 @@ All app bundles will be placed at `../byteballbuilds` dir, so create it first: `
 - Install Xcode 7 (or newer)
 - Install Cordova 6 `npm install cordova@6 -g`
 - Run `make ios-debug`
-  * In case of ios-deploy missing error: `npm install -g ios-deploy`
-  * In case of `DeviceSupport` missing error, run `cd /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/ && sudo ln -s 10.3.1\ \(14E8301\)/ 10.3`
-  * If you encounter 'bitcore' not found after app launch, install it also `npm install bitcore-lib` and remove `../bytebalbuilds/project-IOS` folder completely, then rerun make again.
-  * On code signing error, open Xcode project `../byteballbuilds/project-IOS/platforms/ios/Byteball.xcodeproj` in Xcode, open project properties, select Byteball target and set your AppleID account as a team. Xcode may also ask you to change bundle identifier to be unique, just append any random string to 'org.byteball.wallet' bundle identifier.
 
-### macOS
-
-- `grunt desktop`
-- copy `node_modules` into the app bundle ../byteballbuilds/Byteball/osx64/Byteball.app/Contents/Resources/app.nw, except those that are important only for development (karma, grunt, jasmine)
-- `grunt dmg`
-
-### Windows
-
-- `grunt desktop`
-- copy `node_modules` into the app bundle ../byteballbuilds/Byteball/win64, except those that are important only for development (karma, grunt, jasmine)
-- `grunt inno64`
-
-### Linux
-
-- `grunt desktop`
-- copy `node_modules` into the app bundle ../byteballbuilds/Byteball/linux64, except those that are important only for development (karma, grunt, jasmine)
-- `grunt linux64`
-
-
-## About Byteball
-
-TBD
-
-## Byteball Backups and Recovery
-
-Byteball uses a single extended private key for all wallets, BIP44 is used for wallet address derivation.  There is a BIP39 mnemonic for backing up the wallet key, but it is not enough.  Private payments and co-signers of multisig wallets are stored only in the app's data directory, which you have to back up manually:
-
-* macOS: `~/Library/Application Support/byteball`
-* Linux: `~/.config/byteball`
-* Windows: `%LOCALAPPDATA%\byteball`
-
-
-## Translations
-
-Byteball uses standard gettext PO files for translations and [Crowdin](https://crowdin.com/project/byteball) as the front-end tool for translators. To join our team of translators, please create an account at [Crowdin](https://crowdin.com) and translate the Byteball documentation and application text into your native language.
-
-To download and build using the latest translations from Crowdin, please use the following commands:
-
-```sh
-cd i18n
-node crowdin_download.js
-```
-
-This will download all partial and complete language translations while also cleaning out any untranslated ones.
-
-
-## Support
-
-* [GitHub Issues](https://github.com/byteball/byteball/issues)
-  * Open an issue if you are having problems with this project
-* [Email Support](mailto:byteball@byteball.org)
-
-## Credits
-
-The GUI is based on [Copay](https://github.com/bitpay/copay), the most beautiful and easy to use Bitcoin wallet.
-
-## License
-
-MIT.
